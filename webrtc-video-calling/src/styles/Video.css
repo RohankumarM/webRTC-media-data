@@ -1,0 +1,17 @@
+.local-video-controls{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-self: center;
+}
+
+.MuiSvgIcon-root.settings{
+  color: white;
+  padding: 5px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.MuiSvgIcon-root.settings:hover{
+  color: white;
+}

@@ -1,0 +1,141 @@
+.createRoom {
+  position: fixed;
+  height: 100vh;
+  background-color: #a32939;
+  width: 100%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading .settings {
+  font-size: 40px;
+  margin: 50px 30px 0 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo > img {
+  height: 45px;
+  width: 45px;
+  margin: 50px 0 0 50px;
+}
+
+.logo .logo-name {
+  font-family: "Righteous", cursive;
+  color: white;
+  font-size: 30px;
+  margin: 50px 0 0 15px;
+}
+
+.enter-room {
+  display: flex;
+  align-items: center;
+  max-width: 480px;
+  width: calc(100% - 100px);
+  z-index: 2;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  margin-left: 50px;
+  margin-top: 200px;
+}
+
+.enter-room-container {
+  text-align: left;
+  color: #253858;
+  flex-grow: 1;
+  height: fit-content;
+  padding-right: 4px;
+  position: relative;
+}
+
+.roomIdInput {
+  border: 0;
+  background: #fff;
+  display: inline-block;
+  height: 50px;
+  width: 100%;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.createRoomIdButton {
+  border: 0;
+  font-size: 14px;
+  background: #0074e0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  padding: 16px 20px;
+}
+
+.roomIdQues-container {
+  display: flex;
+  align-items: center;
+}
+
+.roomIdQuestion {
+  margin: 18px 15px 20px 60px;
+  color: white;
+}
+
+.joinRoomQuesBtn {
+  border: 0;
+  font-size: 10px;
+  background: #14a870;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.join-room {
+  display: flex;
+  align-items: center;
+  max-width: 480px;
+  width: calc(100% - 100px);
+  z-index: 2;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.join-room-container {
+  text-align: left;
+  color: #253858;
+  flex-grow: 1;
+  height: fit-content;
+  padding-right: 4px;
+  position: relative;
+}
+
+.joinRoomIdButton {
+  border: 0;
+  font-size: 14px;
+  background: #0074e0;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  padding: 16px 20px;
+}
+
+@media (max-width: 550px) {
+  .enter-room {
+    flex-direction: column;
+  }
+  .enter-room-container {
+    padding-right: 0;
+  }
+  .roomIdQues-container {
+    flex-direction: column;
+  }
+}
