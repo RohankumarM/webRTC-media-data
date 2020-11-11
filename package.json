@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "PROD=true node server.js",
-    "postinstall": "cd ./webrtc-video-calling && npm"
+    "postinstall": "cd ./webrtc-video-calling && yarn"
   },
   "keywords": [],
   "author": "",
