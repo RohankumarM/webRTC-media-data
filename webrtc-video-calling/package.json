@@ -1,6 +1,9 @@
 {
   "name": "webrtc-video-calling",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.18.3"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
