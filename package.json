@@ -2,13 +2,14 @@
   "name": "rova-meet",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "12.18.3",
     "npm": "6.14.6"
   },
   "scripts": {
-    "start": "PROD=true node server.js"
+    "start": "PROD=true node server.js",
+    "heroku-postbuild": "cd webrtc-video-calling && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

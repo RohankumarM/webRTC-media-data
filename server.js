@@ -27,10 +27,10 @@ app.get('/:room', (req, res, next) => {
   res.sendFile(__dirname + '/webrtc-video-calling/build/index.html');
 });
 
-if(process.send.PROD){
-  app.use(express.static(path.join(__dirname, './webrtc-video-calling/build')));
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, 'webrtc-video-calling/build')));
   app.get('*', (req, res) => {
-    res.sendFile(__dirname + '/webrtc-video-calling/build/index.html');
+    res.sendFile(path.join(__dirname + "webrtc-video-calling", "build", "index.html"));
   })
 }
 
