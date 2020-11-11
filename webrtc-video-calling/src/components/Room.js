@@ -58,7 +58,7 @@ class App extends React.Component {
   };
 
   getLocalStream = () => {
-    const contraints = { video: true, audio: true, options: { mirror: true } };
+    const contraints = { video: true, audio:{ echoCancellation: true }, options: { mirror: false } };
     navigator.mediaDevices.getUserMedia(contraints)
       .then((stream) => {
         // this.localVideoRef.current.srcObject = stream;
@@ -432,7 +432,7 @@ class App extends React.Component {
     navigator.mediaDevices.getDisplayMedia({ cursor: true }).then(stream => {
       const screenTrack = stream.getTracks()[0];
       this.senders.find(sender => sender.track.kind === 'video').replaceTrack(screenTrack);
-      screenTrack.onended = function () {
+      screenTrack.onended = () => {
         this.senders.find(sender => sender.track.kind === "video")
           .replaceTrack(this.state.localStream.getTracks()[1]);
       }
