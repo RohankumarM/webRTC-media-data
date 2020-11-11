@@ -51,6 +51,7 @@ class App extends React.Component {
     this.controlsContent = createRef();
     this.fullscreen = createRef();
     this.statusBar = createRef();
+    this.multipleVideos = createRef();
 
     this.socket = null;
     this.senders = [];
@@ -398,9 +399,11 @@ class App extends React.Component {
     this.mainAppDiv.current.addEventListener('mousemove', () => {
       this.controlsContent.current.classList.add('visible');
       this.statusBar.current.classList.add('visible');
+      // this.multipleVideos.current.classList.add('visible');
       setTimeout(() => {
         this.controlsContent.current.classList.remove('visible');
         this.statusBar.current.classList.remove('visible');
+        // this.multipleVideos.current.classList.remove('visible');
       }, 5000);
     });
 
@@ -489,7 +492,6 @@ class App extends React.Component {
   // }
 
   render() {
-
     if (this.state.disconnected) {
       this.socket.close()
       this.state.localStream.getTracks().forEach(track => track.stop())
@@ -554,12 +556,14 @@ class App extends React.Component {
 
           }}> {statusText}</div>
         </div>
-        <div>
+        {this.state.remoteStreams.length > 1 ? <div className="multipleVideos" ref={this.multipleVideos}>
           <Videos
             switchVideo={this.switchVideo}
-            remoteStreams={this.state.remoteStreams}
+            remoteStreams={this.state.remoteStreams.slice(1)}
           ></Videos>
         </div>
+        : <div></div> }
+        
         <br />
         {this.state.chatWindow ? <Chat
           user={{

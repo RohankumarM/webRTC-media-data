@@ -21,6 +21,16 @@
   visibility: hidden;
 }
 
+/* .multipleVideos.visible{
+  visibility: visible;
+  opacity: 0.6;
+}
+
+.multipleVideos{
+  visibility: hidden;
+  opacity: 0;
+} */
+
 .controls-content{
   position: fixed;
   bottom: 0;
