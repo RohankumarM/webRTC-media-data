@@ -51,9 +51,8 @@ const CreateRoom = (props) => {
   }
 
   const updateInputValue = (value) => {
-    console.log(value);
     setRoomId(value);
-    document.querySelector('.roomIdInput').defaultValue = roomId;
+    // document.querySelector('.roomIdInput').defaultValue = roomId;
   }
 
   const handleJoinRoom = () => {
@@ -74,7 +73,29 @@ const CreateRoom = (props) => {
         </div>
         <SettingsApplicationsIcon className="settings" />
       </div>
-      <div className="enter-room">
+
+      {haveRoomId ? <div className="join-room">
+        <div className="join-room-container">
+          <form onSubmit={create}>
+            <input
+              aria-disabled="false"
+              aria-label="Meeting"
+              className="roomIdInput"
+              type="text"
+              pattern="^[^?&amp;:&quot;'%#]+$"
+              onChange={e => updateInputValue(e.target.value)}
+              ref={inputRoomId}
+              title="Meeting name should not contain any of these characters: ?, &amp;, :, ', &quot;, %, #."/>
+          </form>
+        </div>
+        <button
+          aria-disabled="false"
+          aria-label="Join meeting"
+          className="joinRoomIdButton"
+          onClick={create}>
+          Join Room
+          </button>
+      </div> : <div className="enter-room">
         <div className="enter-room-container">
           <form onSubmit={create}>
             <input
@@ -96,36 +117,12 @@ const CreateRoom = (props) => {
           onClick={create}>
           Create Room
           </button>
-      </div>
+      </div>}
 
       <div className="roomIdQues-container">
         <h5 className="roomIdQuestion">Already have a Room ID?</h5>
         <button className="joinRoomQuesBtn" onClick={handleJoinRoom}>Join Room</button>
       </div>
-
-      {haveRoomId ? <div className="join-room">
-        <div className="join-room-container">
-          <form onSubmit={create}>
-            <input
-              aria-disabled="false"
-              aria-label="Meeting"
-              className="roomIdInput"
-              type="text"
-              pattern="^[^?&amp;:&quot;'%#]+$"
-              onChange={e => updateInputValue(e.target.value)}
-              ref={inputRoomId}
-              title="Meeting name should not contain any of these characters: ?, &amp;, :, ', &quot;, %, #."
-            />
-          </form>
-        </div>
-        <button
-          aria-disabled="false"
-          aria-label="Join meeting"
-          className="joinRoomIdButton"
-          onClick={create}>
-          Join Room
-          </button>
-      </div> : <div></div>}
     </div>
   );
 }
